@@ -3,84 +3,174 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Rodrigo Pérez · Portfolio</title>
-  <meta name="description" content="Rodrigo Pérez’s portfolio: websites, browser games, apps and 3D work you can try instantly, with the source code on GitHub.">
+  <title>Rodrigo Perez · Web & Digital Media Portfolio</title>
+  <meta name="description" content="Rodrigo Perez: First Class BA (Hons) Digital Media graduate in London. Websites, apps, games, posters and video, with live demos and source code.">
   <meta name="theme-color" content="#0f1115">
+  <meta property="og:title" content="Rodrigo Perez · Portfolio">
+  <meta property="og:description" content="Websites, apps, games, posters and video by a First Class Digital Media graduate in London.">
+  <meta property="og:image" content="https://rodrigoperez2803.github.io/img/neon-rush.png">
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500&display=swap');
-    :root{--bg:#0f1115;--panel:#171a21;--line:#262a33;--text:#eef0f4;--muted:#9aa1ad;--accent:#5eead4;--accent2:#a78bfa}
+    :root{--bg:#0f1115;--panel:#171a21;--panel2:#1c2029;--line:#262a33;--text:#eef0f4;--muted:#9aa1ad;--soft:#c6cbd4;--accent:#5eead4;--accent2:#a78bfa}
     *{box-sizing:border-box}
     html{scroll-behavior:smooth}
-    body{margin:0;background:radial-gradient(1200px 600px at 80% -10%,#1c2230 0,transparent 60%),var(--bg);color:var(--text);font:16px/1.6 Inter,system-ui,sans-serif}
+    body{margin:0;background:radial-gradient(1200px 600px at 85% -10%,#1c2230 0,transparent 60%),var(--bg);color:var(--text);font:16px/1.6 Inter,system-ui,sans-serif}
     a{color:inherit}
-    main{width:min(1080px,calc(100% - 32px));margin:auto;padding:56px 0 64px}
-    header{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
-    .name{font-weight:800;letter-spacing:.2px}
-    .btn{display:inline-flex;align-items:center;gap:8px;padding:9px 14px;border-radius:10px;border:1px solid var(--line);background:var(--panel);text-decoration:none;font-weight:600;font-size:14px}
-    .btn:hover{border-color:#3a4150}
+    img{max-width:100%}
+    html,body{overflow-x:hidden}
+    .hero>*,.grid>*,.contact>*{min-width:0}
+    .wrap{width:min(1100px,calc(100% - 32px));margin:auto}
+    .mono{font:500 12px 'JetBrains Mono',monospace;letter-spacing:2px;text-transform:uppercase}
+    .btn{display:inline-flex;align-items:center;gap:8px;padding:10px 15px;border-radius:10px;border:1px solid var(--line);background:var(--panel);text-decoration:none;font-weight:600;font-size:14px;white-space:nowrap}
+    .btn:hover{border-color:#3d4452}
     .btn.primary{background:var(--accent);border-color:var(--accent);color:#06201b}
     .btn.primary:hover{filter:brightness(1.08)}
-    .hero{padding:64px 0 28px;max-width:740px}
-    .eyebrow{font:500 12px 'JetBrains Mono',monospace;letter-spacing:2px;text-transform:uppercase;color:var(--accent)}
-    h1{margin:12px 0 14px;font-size:clamp(38px,6vw,60px);line-height:1.05;letter-spacing:-1.5px}
-    h1 span{background:linear-gradient(90deg,var(--accent),var(--accent2));-webkit-background-clip:text;background-clip:text;color:transparent}
-    .lead{color:#c6cbd4;font-size:18px;margin:0}
-    nav.sections{position:sticky;top:0;z-index:5;display:flex;flex-wrap:wrap;gap:8px;padding:14px 0;margin-bottom:8px;background:linear-gradient(var(--bg) 70%,transparent)}
-    nav.sections a{padding:7px 13px;border-radius:99px;border:1px solid var(--line);background:var(--panel);text-decoration:none;font-size:14px;font-weight:600;color:#d5d9e0}
-    nav.sections a:hover{border-color:var(--accent);color:#fff}
-    nav.sections a small{color:var(--muted);font-weight:500;margin-left:4px}
-    section.group{padding-top:28px;scroll-margin-top:64px}
-    section.group h2{display:flex;align-items:baseline;gap:12px;margin:0 0 6px;font-size:28px;letter-spacing:-.5px}
-    section.group h2 small{font:500 13px 'JetBrains Mono',monospace;color:var(--muted)}
-    section.group > p{margin:0 0 20px;color:var(--muted)}
+    .btn svg{width:16px;height:16px}
+
+    /* Top bar */
+    .topbar{position:sticky;top:0;z-index:10;background:rgba(15,17,21,.82);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+    .topbar .wrap{display:flex;align-items:center;gap:18px;height:60px}
+    .brand{font-weight:800;text-decoration:none;white-space:nowrap}
+    .brand span{color:var(--accent)}
+    .links{display:flex;gap:4px;overflow-x:auto;scrollbar-width:none;flex:1;min-width:0}
+    .links::-webkit-scrollbar{display:none}
+    .links a{padding:7px 11px;border-radius:8px;text-decoration:none;font-size:14px;font-weight:600;color:#c9ced6;white-space:nowrap}
+    .links a:hover{background:var(--panel);color:#fff}
+    .topbar .btn{padding:7px 12px}
+
+    /* Hero */
+    .hero{display:grid;grid-template-columns:1.35fr .65fr;gap:40px;align-items:center;padding:72px 0 40px}
+    .hero h1{margin:14px 0 14px;font-size:clamp(40px,6vw,64px);line-height:1.02;letter-spacing:-1.8px}
+    .hero h1 span{background:linear-gradient(90deg,var(--accent),var(--accent2));-webkit-background-clip:text;background-clip:text;color:transparent}
+    .hero .lead{color:var(--soft);font-size:18px;margin:0 0 22px;max-width:640px}
+    .facts{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:24px}
+    .facts span{display:inline-flex;align-items:center;gap:6px;padding:5px 11px;border-radius:99px;background:var(--panel);border:1px solid var(--line);font-size:13.5px;color:#d5d9e0}
+    .facts b{color:var(--accent);font-weight:700}
+    .cta{display:flex;flex-wrap:wrap;gap:10px}
+    .stats{display:grid;gap:12px}
+    .stat{padding:18px 20px;border-radius:16px;background:var(--panel);border:1px solid var(--line)}
+    .stat strong{display:block;font-size:30px;line-height:1.1;letter-spacing:-.5px}
+    .stat span{color:var(--muted);font-size:14px}
+
+    /* Sections */
+    section.block{padding:56px 0 8px;scroll-margin-top:70px}
+    .head{display:flex;align-items:baseline;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:6px}
+    .head h2{margin:0;font-size:30px;letter-spacing:-.6px}
+    .head small{font:500 13px 'JetBrains Mono',monospace;color:var(--muted)}
+    .intro{margin:0 0 22px;color:var(--muted);max-width:760px}
+
+
+
+    .tags{display:flex;flex-wrap:wrap;gap:6px}
+    .tags span{padding:3px 9px;border-radius:99px;border:1px solid var(--line);color:#b7bdc8;font-size:12.5px;background:var(--panel2)}
+
     .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,460px),1fr));gap:22px}
     .card{display:flex;flex-direction:column;border:1px solid var(--line);border-radius:18px;background:var(--panel);overflow:hidden;transition:transform .2s,border-color .2s}
-    .card:hover{transform:translateY(-3px);border-color:#3a4150}
+    .card:hover{transform:translateY(-3px);border-color:#3d4452}
     .shot{display:block;aspect-ratio:16/9;background:#0b0d11;overflow:hidden;border-bottom:1px solid var(--line)}
-    .shot img,.shot video{width:100%;height:100%;object-fit:cover;object-position:top;display:block}
-    .shot video{object-fit:contain;background:#000}
+    .shot img{width:100%;height:100%;object-fit:cover;object-position:top;display:block}
+    .shot video{width:100%;height:100%;display:block;background:#000}
     .body{display:flex;flex-direction:column;gap:12px;padding:22px;flex:1}
-    .body h3{margin:0;font-size:24px;letter-spacing:-.4px}
+    .body h3{margin:0;font-size:23px;letter-spacing:-.4px}
     .kind{font:500 12px 'JetBrains Mono',monospace;color:var(--accent2)}
-    .body p{margin:0;color:#c6cbd4}
-    .body ul{margin:0;padding-left:18px;color:#c6cbd4;font-size:15px}
-    .tags{display:flex;flex-wrap:wrap;gap:6px}
-    .tags span{padding:3px 9px;border-radius:99px;border:1px solid var(--line);color:var(--muted);font-size:12.5px}
+    .body p{margin:0;color:var(--soft)}
+    .body ul{margin:0;padding-left:18px;color:var(--soft);font-size:15px}
     .actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:auto;padding-top:6px}
-    footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--line);color:var(--muted);font-size:14px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+
+    .posters{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-bottom:22px}
+    .poster{display:block;border-radius:14px;overflow:hidden;border:1px solid var(--line);background:#0b0d11;transition:transform .2s,border-color .2s}
+    .poster:hover{transform:translateY(-3px);border-color:var(--accent)}
+    .poster img{display:block;width:100%;aspect-ratio:1/1.414;object-fit:cover}
+    .poster figcaption{padding:10px 14px;font-size:14px;color:var(--soft)}
+
+    .contact{display:grid;grid-template-columns:1fr auto;gap:24px;align-items:center;padding:30px;border-radius:20px;background:linear-gradient(135deg,rgba(94,234,212,.12),rgba(167,139,250,.12)),var(--panel);border:1px solid var(--line)}
+    .contact h2{margin:0 0 6px;font-size:28px;letter-spacing:-.5px}
+    .contact p{margin:0;color:var(--soft)}
+    footer{padding:40px 0 48px;color:var(--muted);font-size:14px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+
+    @media(max-width:860px){
+      .hero{grid-template-columns:1fr}
+      .stats{grid-template-columns:repeat(3,1fr)}
+      .posters{grid-template-columns:1fr 1fr}
+      .contact{grid-template-columns:1fr}
+      .topbar .btn{display:none}
+    }
+    @media(max-width:560px){.stats{grid-template-columns:1fr}.posters{grid-template-columns:1fr}.hero{padding-top:48px}}
   </style>
 </head>
 <body>
-<main>
-  <header>
-    <div class="name">Rodrigo Pérez</div>
-    <a class="btn" href="https://github.com/RodrigoPerez2803">GitHub</a>
-  </header>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-doc" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M8 13h8M8 17h5"/></symbol>
+  <symbol id="i-in" viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></symbol>
+  <symbol id="i-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 6-10 7L2 6"/></symbol>
+  <symbol id="i-gh" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .3a12 12 0 0 0-3.8 23.38c.6.12.83-.26.83-.57L9 21.07c-3.34.72-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.09-.74.08-.73.08-.73 1.2.09 1.84 1.24 1.84 1.24 1.07 1.83 2.81 1.3 3.5 1 .1-.78.42-1.31.76-1.61-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.14-.3-.54-1.52.1-3.18 0 0 1-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.28-1.55 3.29-1.23 3.29-1.23.64 1.66.24 2.88.12 3.18a4.65 4.65 0 0 1 1.23 3.22c0 4.61-2.8 5.63-5.48 5.92.42.36.81 1.1.81 2.22l-.01 3.29c0 .31.2.69.82.57A12 12 0 0 0 12 .3"/></symbol>
+</svg>
 
+<header class="topbar">
+  <div class="wrap">
+    <a class="brand" href="#top">Rodrigo <span>Perez</span></a>
+    <nav class="links" id="nav" aria-label="Sections"></nav>
+    <a class="btn primary" href="cv/Rodrigo-Perez-CV.pdf" target="_blank" rel="noopener"><svg><use href="#i-doc"/></svg>CV</a>
+  </div>
+</header>
+
+<main class="wrap" id="top">
   <section class="hero">
-    <div class="eyebrow">Portfolio</div>
-    <h1>Websites, games and apps you can <span>try in one click</span></h1>
-    <p class="lead">Projects built end to end, from design and code to live data and deployment. Everything opens straight in your browser, and the source code is on GitHub.</p>
+    <div>
+      <div class="mono" style="color:var(--accent)">Web · Apps · Digital media</div>
+      <h1>Hi, I’m Rodrigo. I build <span>websites, apps and digital content</span>.</h1>
+      <p class="lead">First Class BA (Hons) Digital Media graduate and Web Design &amp; Development Intern. I design and build websites and cross-platform apps, and I bring brand, poster and video experience from real client work. I’m looking for a junior digital, web or content role in London.</p>
+      <div class="facts">
+        <span>📍 New Malden, London</span>
+        <span>✅ <b>Full right to work in the UK</b> (Graduate visa)</span>
+        <span>🗣️ English (IELTS 8.0) · Spanish (native)</span>
+      </div>
+      <div class="cta">
+        <a class="btn primary" href="cv/Rodrigo-Perez-CV.pdf" target="_blank" rel="noopener"><svg><use href="#i-doc"/></svg>Download CV</a>
+        <a class="btn" href="https://www.linkedin.com/in/rodrigo-perez111" target="_blank" rel="noopener"><svg><use href="#i-in"/></svg>LinkedIn</a>
+        <a class="btn" href="mailto:rpdiazdelolmo@gmail.com"><svg><use href="#i-mail"/></svg>Email me</a>
+        <a class="btn" href="https://github.com/RodrigoPerez2803" target="_blank" rel="noopener"><svg><use href="#i-gh"/></svg>GitHub</a>
+      </div>
+    </div>
+    <div class="stats">
+      <div class="stat"><strong>First Class</strong><span>BA (Hons) Digital Media, University of Roehampton, 2025</span></div>
+      <div class="stat"><strong>2 live apps</strong><span>contributed to as an intern, on Google Play, the App Store and the web</span></div>
+      <div class="stat"><strong>Real client</strong><span>posters and promo video adopted for Be Inspired’s official channels</span></div>
+    </div>
   </section>
 
-  <nav class="sections" id="nav" aria-label="Sections"></nav>
   <div id="groups"></div>
 
-  <footer>
-    <span>© <span id="year"></span> Rodrigo Pérez</span>
-    <a href="https://github.com/RodrigoPerez2803">github.com/RodrigoPerez2803</a>
-  </footer>
+  <section class="block" id="contact">
+    <div class="contact">
+      <div>
+        <h2>Let’s talk</h2>
+        <p>Open to junior web, digital and content roles in London. The quickest way to reach me is by email or LinkedIn.</p>
+      </div>
+      <div class="cta">
+        <a class="btn primary" href="mailto:rpdiazdelolmo@gmail.com"><svg><use href="#i-mail"/></svg>rpdiazdelolmo@gmail.com</a>
+        <a class="btn" href="https://www.linkedin.com/in/rodrigo-perez111" target="_blank" rel="noopener"><svg><use href="#i-in"/></svg>LinkedIn</a>
+        <a class="btn" href="cv/Rodrigo-Perez-CV.pdf" target="_blank" rel="noopener"><svg><use href="#i-doc"/></svg>CV (PDF)</a>
+      </div>
+    </div>
+  </section>
 </main>
+
+<footer class="wrap">
+  <span>© <span id="year"></span> Rodrigo Perez</span>
+  <a href="https://github.com/RodrigoPerez2803">github.com/RodrigoPerez2803</a>
+</footer>
+
 <script>
-  // Portfolio content, grouped by section. To add a piece of work, add an entry to the right
-  // section's `items` (and its screenshot to img/). Sections with no items are hidden.
+  // Portfolio work, grouped by section. To add a piece, add an entry to the right section's `items`
+  // (screenshots in img/, posters in img/posters/, videos in videos/). Empty sections are hidden.
   const GH = 'https://github.com/RodrigoPerez2803/', SITE = 'https://rodrigoperez2803.github.io/';
   const SECTIONS = [
     {
       id: 'websites', title: 'Websites', intro: 'University coursework, each shown in its original version and in a later redesign.',
       items: [
         {
-          name: 'RoeExchange · Redesign', kind: 'University project · HTML, CSS, JavaScript', image: 'img/roe-exchange.png',
+          name: 'RoeExchange · Redesign', kind: 'Final Year Project · HTML, CSS, JavaScript', image: 'img/roe-exchange.png',
           summary: 'A marketplace where University of Roehampton students can buy, sell and swap items without leaving campus.',
           points: [
             'Verified-student sign-up with field validation (university email, student ID, college).',
@@ -91,8 +181,8 @@
           demo: SITE + 'roe-exchange/', demoLabel: 'Open the site', code: GH + 'roe-exchange',
         },
         {
-          name: 'RoeExchange · Original version', kind: 'University project · HTML, CSS, JavaScript', image: 'img/roe-exchange-original.png',
-          summary: 'The original coursework version of RoeExchange: a multi-page prototype of the student marketplace.',
+          name: 'RoeExchange · Original version', kind: 'Final Year Project · HTML, CSS, JavaScript', image: 'img/roe-exchange-original.png',
+          summary: 'The original coursework version of the Final Year Project: a multi-page prototype of the student marketplace.',
           points: [
             'Sign-up journey with personal details and college selection.',
             'Store by category, product details, selling and trading pages.',
@@ -102,26 +192,44 @@
           demo: SITE + 'roe-exchange-original/', demoLabel: 'Open the site', code: GH + 'roe-exchange-original',
         },
         {
-          name: 'Dungeons & Coffee · Redesign', kind: 'University project · HTML, CSS, JavaScript', image: 'img/dungeons-and-coffee.png',
-          summary: 'A website for a fictional coffee shop and tabletop gaming café themed around Dungeons & Dragons.',
+          name: 'Dungeons & Coffee · Redesign', kind: 'Web Design Project · HTML, CSS, JavaScript', image: 'img/dungeons-and-coffee.png',
+          summary: 'A brand and website for a fictional coffee shop and tabletop gaming café themed around Dungeons & Dragons.',
           points: [
             'New visual identity and responsive layout across six pages.',
             'Menu and product filters, a reservation bag with a live counter, and a validated table-booking form.',
             'Count-up statistics and scroll-reveal animations.',
           ],
-          tags: ['HTML', 'CSS', 'JavaScript', 'Responsive design'],
+          tags: ['HTML', 'CSS', 'JavaScript', 'Branding', 'Responsive design'],
           demo: SITE + 'dungeons-and-coffee/', demoLabel: 'Open the site', code: GH + 'dungeons-and-coffee',
         },
         {
-          name: 'Dungeons & Coffee · Original version', kind: 'University project · HTML, CSS', image: 'img/dungeons-and-coffee-original.png',
-          summary: 'The original coursework version of Dungeons & Coffee: a multi-page static website.',
+          name: 'Dungeons & Coffee · Original version', kind: 'Web Design Project · HTML, CSS', image: 'img/dungeons-and-coffee-original.png',
+          summary: 'The original coursework: the brand, logo, information architecture and page layouts, delivered as a working site.',
           points: [
             'Home, about, menu, products, play and contact pages.',
             'Semantic HTML with hand-written CSS.',
             'A small script to switch between the product categories.',
           ],
-          tags: ['HTML', 'CSS'],
+          tags: ['HTML', 'CSS', 'Branding'],
           demo: SITE + 'dungeons-and-coffee-original/', demoLabel: 'Open the site', code: GH + 'dungeons-and-coffee-original',
+        },
+      ],
+    },
+    {
+      id: 'apps', title: 'Apps', intro: 'Mobile and web apps.',
+      items: [
+        {
+          name: 'FuelScout', kind: 'Mobile and web app · Flutter', image: 'img/fuelscout.png',
+          summary: 'Find the cheapest petrol station near you, in any country in the world.',
+          points: [
+            'Live official prices for Spain, France and Portugal, plus OpenStreetMap petrol stations everywhere else.',
+            'The map recalculates as you pan, with place search, price rise and fall alerts, and directions via Google Maps or Waze.',
+            'English or Spanish depending on the device; a single codebase runs on Android and on the web.',
+          ],
+          tags: ['Flutter', 'Dart', 'REST APIs', 'OpenStreetMap', 'Android', 'Web'],
+          demo: SITE + 'fuelscout/', demoLabel: 'Try the app',
+          extra: { href: GH + 'fuelscout/releases/latest', label: 'Android APK' },
+          code: GH + 'fuelscout',
         },
       ],
     },
@@ -164,38 +272,35 @@
       ],
     },
     {
-      id: 'apps', title: 'Apps', intro: 'Mobile and web apps.',
+      id: 'posters', title: 'Images & posters', type: 'posters',
+      intro: 'Be Inspired (client project): three posters for a youth organisation’s social media campaign, designed after researching the brand and its audience. The client adopted the work for its official channels.',
       items: [
-        {
-          name: 'FuelScout', kind: 'Mobile and web app · Flutter', image: 'img/fuelscout.png',
-          summary: 'Find the cheapest petrol station near you, in any country in the world.',
-          points: [
-            'Live official prices for Spain, France and Portugal, plus OpenStreetMap petrol stations everywhere else.',
-            'The map recalculates as you pan, with place search, price rise and fall alerts, and directions via Google Maps or Waze.',
-            'English or Spanish depending on the device; a single codebase runs on Android and on the web.',
-          ],
-          tags: ['Flutter', 'Dart', 'REST APIs', 'OpenStreetMap', 'Android', 'Web'],
-          demo: SITE + 'fuelscout/', demoLabel: 'Try the app',
-          extra: { href: GH + 'fuelscout/releases/latest', label: 'Android APK' },
-          code: GH + 'fuelscout',
-        },
+        { name: 'Brand poster: “A brighter future starts here”', image: 'img/posters/be-inspired-brand-thumb.jpg', full: 'img/posters/be-inspired-brand.jpg' },
+        { name: 'Boxing classes', image: 'img/posters/be-inspired-boxing-thumb.jpg', full: 'img/posters/be-inspired-boxing.jpg' },
+        { name: 'Yoga sessions', image: 'img/posters/be-inspired-yoga-thumb.jpg', full: 'img/posters/be-inspired-yoga.jpg' },
       ],
     },
     {
-      id: 'videos', title: 'Videos', intro: '3D and motion work.',
-      // Items use `video: 'videos/<file>.mp4'` plus `image` as the poster frame.
-      items: [],
-    },
-    {
-      id: 'images', title: 'Images & posters', intro: 'Graphic design, posters and illustration.',
-      items: [],
+      id: 'videos', title: 'Videos', intro: 'Filming, editing and motion graphics.',
+      items: [
+        {
+          name: 'Be Inspired · Promotional video', kind: 'Client project · Premiere Pro, After Effects', image: 'img/be-inspired-promo.jpg', video: 'videos/be-inspired-promo.mp4',
+          summary: 'A short promotional film for Be Inspired, a youth organisation, made for its social media channels.',
+          points: [
+            'Agreed the creative brief with senior management after researching the brand and its audience.',
+            'Filmed on-site footage and interviews at the client’s premises.',
+            'Edited in Premiere Pro, with motion graphics in After Effects; adopted for the client’s official channels.',
+          ],
+          tags: ['Premiere Pro', 'After Effects', 'Filming', 'Social media'],
+        },
+      ],
     },
   ];
 
   const esc = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
   const media = p => p.video
-    ? `<div class="shot"><video controls preload="none" poster="${p.image}" src="${p.video}" aria-label="${esc(p.name)}"></video></div>`
-    : `<a class="shot" href="${p.demo}"><img src="${p.image}" alt="Screenshot of ${esc(p.name)}" loading="lazy"></a>`;
+    ? `<div class="shot"><video controls preload="none" playsinline poster="${p.image}" src="${p.video}" aria-label="${esc(p.name)}"></video></div>`
+    : `<a class="shot" href="${p.demo}" target="_blank" rel="noopener"><img src="${p.image}" alt="Screenshot of ${esc(p.name)}" loading="lazy"></a>`;
   const card = p => `
     <article class="card">
       ${media(p)}
@@ -206,19 +311,26 @@
         <ul>${p.points.map(x => `<li>${esc(x)}</li>`).join('')}</ul>
         <div class="tags">${p.tags.map(t => `<span>${esc(t)}</span>`).join('')}</div>
         ${p.demo || p.code ? `<div class="actions">
-          ${p.demo ? `<a class="btn primary" href="${p.demo}">${esc(p.demoLabel)} ↗</a>` : ''}
-          ${p.extra ? `<a class="btn" href="${p.extra.href}">${esc(p.extra.label)}</a>` : ''}
-          ${p.code ? `<a class="btn" href="${p.code}">View code</a>` : ''}
+          ${p.demo ? `<a class="btn primary" href="${p.demo}" target="_blank" rel="noopener">${esc(p.demoLabel)} ↗</a>` : ''}
+          ${p.extra ? `<a class="btn" href="${p.extra.href}" target="_blank" rel="noopener">${esc(p.extra.label)}</a>` : ''}
+          ${p.code ? `<a class="btn" href="${p.code}" target="_blank" rel="noopener">View code</a>` : ''}
         </div>` : ''}
       </div>
     </article>`;
+  const poster = p => `
+    <a class="poster" href="${p.full}" target="_blank" rel="noopener">
+      <figure style="margin:0"><img src="${p.image}" alt="Poster: ${esc(p.name)}" loading="lazy"><figcaption>${esc(p.name)}</figcaption></figure>
+    </a>`;
   const shown = SECTIONS.filter(s => s.items.length);
-  document.querySelector('#nav').innerHTML = shown.map(s => `<a href="#${s.id}">${esc(s.title)}<small>${s.items.length}</small></a>`).join('');
+  const count = s => s.type === 'posters' ? `${s.items.length} posters` : `${s.items.length} ${s.items.length === 1 ? 'project' : 'projects'}`;
+  document.querySelector('#nav').innerHTML = shown.map(s => [s.id, s.title.replace('Images & posters', 'Posters')])
+    .concat([['contact', 'Contact']])
+    .map(([id, t]) => `<a href="#${id}">${esc(t)}</a>`).join('');
   document.querySelector('#groups').innerHTML = shown.map(s => `
-    <section class="group" id="${s.id}">
-      <h2>${esc(s.title)} <small>${s.items.length} ${s.items.length === 1 ? 'project' : 'projects'}</small></h2>
-      <p>${esc(s.intro)}</p>
-      <div class="grid">${s.items.map(card).join('')}</div>
+    <section class="block" id="${s.id}">
+      <div class="head"><h2>${esc(s.title)}</h2><small>${count(s)}</small></div>
+      <p class="intro">${esc(s.intro)}</p>
+      ${s.type === 'posters' ? `<div class="posters">${s.items.map(poster).join('')}</div>` : `<div class="grid">${s.items.map(card).join('')}</div>`}
     </section>`).join('');
   document.querySelector('#year').textContent = new Date().getFullYear();
 </script>
