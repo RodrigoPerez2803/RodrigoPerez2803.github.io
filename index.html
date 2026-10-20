@@ -4,33 +4,41 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Rodrigo Pérez · Portfolio</title>
-  <meta name="description" content="Rodrigo Pérez’s portfolio: apps and browser games you can try instantly, with the source code on GitHub.">
+  <meta name="description" content="Rodrigo Pérez’s portfolio: websites, browser games, apps and 3D work you can try instantly, with the source code on GitHub.">
   <meta name="theme-color" content="#0f1115">
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500&display=swap');
     :root{--bg:#0f1115;--panel:#171a21;--line:#262a33;--text:#eef0f4;--muted:#9aa1ad;--accent:#5eead4;--accent2:#a78bfa}
     *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
     body{margin:0;background:radial-gradient(1200px 600px at 80% -10%,#1c2230 0,transparent 60%),var(--bg);color:var(--text);font:16px/1.6 Inter,system-ui,sans-serif}
     a{color:inherit}
     main{width:min(1080px,calc(100% - 32px));margin:auto;padding:56px 0 64px}
     header{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
     .name{font-weight:800;letter-spacing:.2px}
-    .links{display:flex;gap:10px}
     .btn{display:inline-flex;align-items:center;gap:8px;padding:9px 14px;border-radius:10px;border:1px solid var(--line);background:var(--panel);text-decoration:none;font-weight:600;font-size:14px}
     .btn:hover{border-color:#3a4150}
     .btn.primary{background:var(--accent);border-color:var(--accent);color:#06201b}
     .btn.primary:hover{filter:brightness(1.08)}
-    .hero{padding:72px 0 44px;max-width:720px}
+    .hero{padding:64px 0 28px;max-width:740px}
     .eyebrow{font:500 12px 'JetBrains Mono',monospace;letter-spacing:2px;text-transform:uppercase;color:var(--accent)}
     h1{margin:12px 0 14px;font-size:clamp(38px,6vw,60px);line-height:1.05;letter-spacing:-1.5px}
     h1 span{background:linear-gradient(90deg,var(--accent),var(--accent2));-webkit-background-clip:text;background-clip:text;color:transparent}
     .lead{color:#c6cbd4;font-size:18px;margin:0}
-    h2{font-size:14px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin:24px 0 18px;font-weight:700}
-    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,460px),1fr));gap:22px}
+    nav.sections{position:sticky;top:0;z-index:5;display:flex;flex-wrap:wrap;gap:8px;padding:14px 0;margin-bottom:8px;background:linear-gradient(var(--bg) 70%,transparent)}
+    nav.sections a{padding:7px 13px;border-radius:99px;border:1px solid var(--line);background:var(--panel);text-decoration:none;font-size:14px;font-weight:600;color:#d5d9e0}
+    nav.sections a:hover{border-color:var(--accent);color:#fff}
+    nav.sections a small{color:var(--muted);font-weight:500;margin-left:4px}
+    section.group{padding-top:28px;scroll-margin-top:64px}
+    section.group h2{display:flex;align-items:baseline;gap:12px;margin:0 0 6px;font-size:28px;letter-spacing:-.5px}
+    section.group h2 small{font:500 13px 'JetBrains Mono',monospace;color:var(--muted)}
+    section.group > p{margin:0 0 20px;color:var(--muted)}
+    .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,460px),1fr));gap:22px}
     .card{display:flex;flex-direction:column;border:1px solid var(--line);border-radius:18px;background:var(--panel);overflow:hidden;transition:transform .2s,border-color .2s}
     .card:hover{transform:translateY(-3px);border-color:#3a4150}
-    .shot{aspect-ratio:16/9;background:#0b0d11;overflow:hidden;border-bottom:1px solid var(--line)}
-    .shot img{width:100%;height:100%;object-fit:cover;object-position:top;display:block}
+    .shot{display:block;aspect-ratio:16/9;background:#0b0d11;overflow:hidden;border-bottom:1px solid var(--line)}
+    .shot img,.shot video{width:100%;height:100%;object-fit:cover;object-position:top;display:block}
+    .shot video{object-fit:contain;background:#000}
     .body{display:flex;flex-direction:column;gap:12px;padding:22px;flex:1}
     .body h3{margin:0;font-size:24px;letter-spacing:-.4px}
     .kind{font:500 12px 'JetBrains Mono',monospace;color:var(--accent2)}
@@ -46,20 +54,17 @@
 <main>
   <header>
     <div class="name">Rodrigo Pérez</div>
-    <nav class="links"><a class="btn" href="https://github.com/RodrigoPerez2803">GitHub</a></nav>
+    <a class="btn" href="https://github.com/RodrigoPerez2803">GitHub</a>
   </header>
 
   <section class="hero">
     <div class="eyebrow">Portfolio</div>
-    <h1>Apps and games you can <span>try in one click</span></h1>
-    <p class="lead">Personal projects built end to end: design, code, live data and deployment. Every one of them opens straight in your browser, and the source code is on GitHub.</p>
+    <h1>Websites, games and apps you can <span>try in one click</span></h1>
+    <p class="lead">Projects built end to end, from design and code to live data and deployment. Everything opens straight in your browser, and the source code is on GitHub.</p>
   </section>
 
-  <h2>Projects</h2>
-  <section class="grid" id="projects" aria-label="Projects"></section>
-
-  <h2 style="margin-top:48px">University projects</h2>
-  <section class="grid" id="university" aria-label="University projects"></section>
+  <nav class="sections" id="nav" aria-label="Sections"></nav>
+  <div id="groups"></div>
 
   <footer>
     <span>© <span id="year"></span> Rodrigo Pérez</span>
@@ -67,125 +72,163 @@
   </footer>
 </main>
 <script>
-  // To add a new project, add an entry to this list and put its screenshot in img/.
-  const PROJECTS = [
-    {
-      name: 'FuelScout',
-      kind: 'Mobile and web app · Flutter',
-      image: 'img/fuelscout.png',
-      summary: 'Find the cheapest petrol station near you, in any country in the world.',
-      points: [
-        'Live official prices for Spain, France and Portugal, plus OpenStreetMap petrol stations everywhere else.',
-        'The map recalculates as you pan, with place search, price rise and fall alerts, and directions via Google Maps or Waze.',
-        'English or Spanish depending on the device; a single codebase runs on Android and on the web.',
-      ],
-      tags: ['Flutter', 'Dart', 'REST APIs', 'OpenStreetMap', 'Android', 'Web'],
-      demo: 'https://rodrigoperez2803.github.io/fuelscout/',
-      demoLabel: 'Try the app',
-      extra: { href: 'https://github.com/RodrigoPerez2803/fuelscout/releases/latest', label: 'Android APK' },
-      code: 'https://github.com/RodrigoPerez2803/fuelscout',
-    },
-    {
-      name: 'Vector Arcade',
-      kind: 'Browser games · JavaScript',
-      image: 'img/vector-arcade.png',
-      summary: 'Three complete games built without engines or libraries: everything is drawn on canvas and every sound is synthesised in real time.',
-      points: [
-        'Neon Rush: a pseudo-3D, OutRun-style racer with a customisation garage and performance upgrades.',
-        'Impact Zone: a first-person shooter on a custom raycasting engine, with 12 generated sectors, bosses and random loot.',
-        'Star Siege: a wave-based space shooter with bosses, ship-changing upgrades and a hangar.',
-      ],
-      tags: ['JavaScript', 'HTML5 Canvas', 'Web Audio', 'Gamepad API', 'No libraries'],
-      demo: 'https://rodrigoperez2803.github.io/vector-arcade/games/',
-      demoLabel: 'Play',
-      code: 'https://github.com/RodrigoPerez2803/vector-arcade',
-    },
-  ];
-
-  // University coursework: the original version and the redesign of each project, each with its own repo.
+  // Portfolio content, grouped by section. To add a piece of work, add an entry to the right
+  // section's `items` (and its screenshot to img/). Sections with no items are hidden.
   const GH = 'https://github.com/RodrigoPerez2803/', SITE = 'https://rodrigoperez2803.github.io/';
-  const UNIVERSITY = [
+  const SECTIONS = [
     {
-      name: 'RoeExchange · Redesign',
-      kind: 'Web app · HTML, CSS, JavaScript',
-      image: 'img/roe-exchange.png',
-      summary: 'A marketplace where University of Roehampton students can buy, sell and swap items without leaving campus.',
-      points: [
-        'Verified-student sign-up with field validation (university email, student ID, college).',
-        'Filterable store with favourites, product pages with a seller chat, and trades.',
-        'Step-by-step listing form with drag-and-drop photo upload; data persists in the browser.',
+      id: 'websites', title: 'Websites', intro: 'University coursework, each shown in its original version and in a later redesign.',
+      items: [
+        {
+          name: 'RoeExchange · Redesign', kind: 'University project · HTML, CSS, JavaScript', image: 'img/roe-exchange.png',
+          summary: 'A marketplace where University of Roehampton students can buy, sell and swap items without leaving campus.',
+          points: [
+            'Verified-student sign-up with field validation (university email, student ID, college).',
+            'Filterable store with favourites, product pages with a seller chat, and trades.',
+            'Step-by-step listing form with drag-and-drop photo upload; data persists in the browser.',
+          ],
+          tags: ['JavaScript', 'HTML', 'CSS', 'Forms and validation', 'localStorage'],
+          demo: SITE + 'roe-exchange/', demoLabel: 'Open the site', code: GH + 'roe-exchange',
+        },
+        {
+          name: 'RoeExchange · Original version', kind: 'University project · HTML, CSS, JavaScript', image: 'img/roe-exchange-original.png',
+          summary: 'The original coursework version of RoeExchange: a multi-page prototype of the student marketplace.',
+          points: [
+            'Sign-up journey with personal details and college selection.',
+            'Store by category, product details, selling and trading pages.',
+            'Simple form validation, picture previews and on-screen messages.',
+          ],
+          tags: ['HTML', 'CSS', 'JavaScript'],
+          demo: SITE + 'roe-exchange-original/', demoLabel: 'Open the site', code: GH + 'roe-exchange-original',
+        },
+        {
+          name: 'Dungeons & Coffee · Redesign', kind: 'University project · HTML, CSS, JavaScript', image: 'img/dungeons-and-coffee.png',
+          summary: 'A website for a fictional coffee shop and tabletop gaming café themed around Dungeons & Dragons.',
+          points: [
+            'New visual identity and responsive layout across six pages.',
+            'Menu and product filters, a reservation bag with a live counter, and a validated table-booking form.',
+            'Count-up statistics and scroll-reveal animations.',
+          ],
+          tags: ['HTML', 'CSS', 'JavaScript', 'Responsive design'],
+          demo: SITE + 'dungeons-and-coffee/', demoLabel: 'Open the site', code: GH + 'dungeons-and-coffee',
+        },
+        {
+          name: 'Dungeons & Coffee · Original version', kind: 'University project · HTML, CSS', image: 'img/dungeons-and-coffee-original.png',
+          summary: 'The original coursework version of Dungeons & Coffee: a multi-page static website.',
+          points: [
+            'Home, about, menu, products, play and contact pages.',
+            'Semantic HTML with hand-written CSS.',
+            'A small script to switch between the product categories.',
+          ],
+          tags: ['HTML', 'CSS'],
+          demo: SITE + 'dungeons-and-coffee-original/', demoLabel: 'Open the site', code: GH + 'dungeons-and-coffee-original',
+        },
       ],
-      tags: ['JavaScript', 'HTML', 'CSS', 'Forms and validation', 'localStorage'],
-      demo: SITE + 'roe-exchange/',
-      demoLabel: 'Open the site',
-      code: GH + 'roe-exchange',
     },
     {
-      name: 'RoeExchange · Original version',
-      kind: 'Website · HTML, CSS, JavaScript',
-      image: 'img/roe-exchange-original.png',
-      summary: 'The original coursework version of RoeExchange: a multi-page prototype of the student marketplace.',
-      points: [
-        'Sign-up journey with personal details and college selection.',
-        'Store by category, product details, selling and trading pages.',
-        'Simple form validation, picture previews and on-screen messages.',
+      id: 'games', title: 'Games', intro: 'Vector Arcade: three browser games built without engines or libraries. Everything is drawn on canvas and every sound is synthesised in real time. Play with a keyboard or a gamepad.',
+      items: [
+        {
+          name: 'Neon Rush', kind: 'Racing game · JavaScript, Canvas, Web Audio', image: 'img/neon-rush.png',
+          summary: 'A pseudo-3D racer in the style of OutRun: five stages against the clock, from a sunset coast road to the city at midnight.',
+          points: [
+            'Road renderer built from projected segments, with curves, hills, parallax scenery and traffic.',
+            'Near-miss combos, nitro, checkpoints and laps that ramp up the traffic.',
+            'Garage with paint, rims, spoilers, body kits, vinyls and performance upgrades bought with credits.',
+          ],
+          tags: ['JavaScript', 'HTML5 Canvas', 'Web Audio', 'Gamepad API'],
+          demo: SITE + 'vector-arcade/games/neon-rush/index.html', demoLabel: 'Play', code: GH + 'vector-arcade',
+        },
+        {
+          name: 'Impact Zone', kind: 'First-person shooter · JavaScript, Canvas, Web Audio', image: 'img/impact-zone.png',
+          summary: 'A first-person shooter on a custom raycasting engine, seen through a soldier’s helmet visor.',
+          points: [
+            'Twelve procedurally generated sectors, each with a keycard to find and a locked exit.',
+            'Six weapons with their own mechanics, enemies driven by a flow-field AI, and multi-phase bosses.',
+            'Random loot, adaptive difficulty, an easy mode and procedural music.',
+          ],
+          tags: ['JavaScript', 'Raycasting', 'HTML5 Canvas', 'Web Audio'],
+          demo: SITE + 'vector-arcade/games/impact-zone/index.html', demoLabel: 'Play', code: GH + 'vector-arcade',
+        },
+        {
+          name: 'Star Siege', kind: 'Space shooter · JavaScript, Canvas, Web Audio', image: 'img/star-siege.png',
+          summary: 'A wave-based space shooter inspired by Asteroids, Galaga and Vampire Survivors.',
+          points: [
+            'Endless waves that get harder, with four bosses that change phase.',
+            'Random loot by rarity and ten upgrades that visibly transform your ship.',
+            'Hangar to choose and paint your ship before each run.',
+          ],
+          tags: ['JavaScript', 'HTML5 Canvas', 'Web Audio', 'Gamepad API'],
+          demo: SITE + 'vector-arcade/games/star-siege/index.html', demoLabel: 'Play', code: GH + 'vector-arcade',
+        },
       ],
-      tags: ['HTML', 'CSS', 'JavaScript'],
-      demo: SITE + 'roe-exchange-original/',
-      demoLabel: 'Open the site',
-      code: GH + 'roe-exchange-original',
     },
     {
-      name: 'Dungeons & Coffee · Redesign',
-      kind: 'Website · HTML, CSS, JavaScript',
-      image: 'img/dungeons-and-coffee.png',
-      summary: 'A website for a fictional coffee shop and tabletop gaming café themed around Dungeons & Dragons.',
-      points: [
-        'New visual identity and responsive layout across six pages.',
-        'Menu and product filters, a reservation bag with a live counter, and a validated table-booking form.',
-        'Count-up statistics and scroll-reveal animations.',
+      id: 'apps', title: 'Apps', intro: 'Mobile and web apps.',
+      items: [
+        {
+          name: 'FuelScout', kind: 'Mobile and web app · Flutter', image: 'img/fuelscout.png',
+          summary: 'Find the cheapest petrol station near you, in any country in the world.',
+          points: [
+            'Live official prices for Spain, France and Portugal, plus OpenStreetMap petrol stations everywhere else.',
+            'The map recalculates as you pan, with place search, price rise and fall alerts, and directions via Google Maps or Waze.',
+            'English or Spanish depending on the device; a single codebase runs on Android and on the web.',
+          ],
+          tags: ['Flutter', 'Dart', 'REST APIs', 'OpenStreetMap', 'Android', 'Web'],
+          demo: SITE + 'fuelscout/', demoLabel: 'Try the app',
+          extra: { href: GH + 'fuelscout/releases/latest', label: 'Android APK' },
+          code: GH + 'fuelscout',
+        },
       ],
-      tags: ['HTML', 'CSS', 'JavaScript', 'Responsive design'],
-      demo: SITE + 'dungeons-and-coffee/',
-      demoLabel: 'Open the site',
-      code: GH + 'dungeons-and-coffee',
     },
     {
-      name: 'Dungeons & Coffee · Original version',
-      kind: 'Website · HTML, CSS',
-      image: 'img/dungeons-and-coffee-original.png',
-      summary: 'The original coursework version of Dungeons & Coffee: a multi-page static website.',
-      points: [
-        'Home, about, menu, products, play and contact pages.',
-        'Semantic HTML with hand-written CSS.',
-        'A small script to switch between the product categories.',
+      id: 'videos', title: 'Videos', intro: '3D and motion work.',
+      items: [
+        {
+          name: 'Raven · 360° turntable', kind: '3D model · Blender', image: 'img/raven-360.jpg', video: 'videos/raven-360.mp4',
+          summary: 'A character modelled in 3D from a 2D illustration, then lit and rendered as a full 360° turntable.',
+          points: [
+            'Modelled, textured and lit in Blender, with a scripted camera and render setup.',
+            '1080p turntable, so the model can be seen from every angle.',
+          ],
+          tags: ['Blender', '3D modelling', 'Rendering'],
+        },
       ],
-      tags: ['HTML', 'CSS'],
-      demo: SITE + 'dungeons-and-coffee-original/',
-      demoLabel: 'Open the site',
-      code: GH + 'dungeons-and-coffee-original',
+    },
+    {
+      id: 'images', title: 'Images & posters', intro: 'Graphic design, posters and illustration.',
+      items: [],
     },
   ];
 
-  const esc = s => s.replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
-  const render = list => list.map(p => `
+  const esc = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+  const media = p => p.video
+    ? `<div class="shot"><video controls preload="none" poster="${p.image}" src="${p.video}" aria-label="${esc(p.name)}"></video></div>`
+    : `<a class="shot" href="${p.demo}"><img src="${p.image}" alt="Screenshot of ${esc(p.name)}" loading="lazy"></a>`;
+  const card = p => `
     <article class="card">
-      <a class="shot" href="${p.demo}"><img src="${p.image}" alt="Screenshot of ${esc(p.name)}" loading="lazy"></a>
+      ${media(p)}
       <div class="body">
         <div class="kind">${esc(p.kind)}</div>
         <h3>${esc(p.name)}</h3>
         <p>${esc(p.summary)}</p>
         <ul>${p.points.map(x => `<li>${esc(x)}</li>`).join('')}</ul>
         <div class="tags">${p.tags.map(t => `<span>${esc(t)}</span>`).join('')}</div>
-        <div class="actions">
-          <a class="btn primary" href="${p.demo}">${esc(p.demoLabel)} ↗</a>
+        ${p.demo || p.code ? `<div class="actions">
+          ${p.demo ? `<a class="btn primary" href="${p.demo}">${esc(p.demoLabel)} ↗</a>` : ''}
           ${p.extra ? `<a class="btn" href="${p.extra.href}">${esc(p.extra.label)}</a>` : ''}
-          <a class="btn" href="${p.code}">View code</a>
-        </div>
+          ${p.code ? `<a class="btn" href="${p.code}">View code</a>` : ''}
+        </div>` : ''}
       </div>
-    </article>`).join('');
-  document.querySelector('#projects').innerHTML = render(PROJECTS);
-  document.querySelector('#university').innerHTML = render(UNIVERSITY);
+    </article>`;
+  const shown = SECTIONS.filter(s => s.items.length);
+  document.querySelector('#nav').innerHTML = shown.map(s => `<a href="#${s.id}">${esc(s.title)}<small>${s.items.length}</small></a>`).join('');
+  document.querySelector('#groups').innerHTML = shown.map(s => `
+    <section class="group" id="${s.id}">
+      <h2>${esc(s.title)} <small>${s.items.length} ${s.items.length === 1 ? 'project' : 'projects'}</small></h2>
+      <p>${esc(s.intro)}</p>
+      <div class="grid">${s.items.map(card).join('')}</div>
+    </section>`).join('');
   document.querySelector('#year').textContent = new Date().getFullYear();
 </script>
 </body>
