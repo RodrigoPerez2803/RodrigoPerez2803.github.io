@@ -2,13 +2,28 @@
 
 Live site: https://rodrigoperez2803.github.io
 
-| Project | Try it | Code |
+## Websites (university projects)
+| Project | Live site | Code |
 |---|---|---|
-| **FuelScout**: find the cheapest petrol station near you, worldwide (Flutter, Android and web) | [Live app](https://rodrigoperez2803.github.io/fuelscout/) | [fuelscout](https://github.com/RodrigoPerez2803/fuelscout) |
-| **Vector Arcade**: three browser games built without engines or libraries (JavaScript, canvas, Web Audio) | [Play](https://rodrigoperez2803.github.io/vector-arcade/games/) | [vector-arcade](https://github.com/RodrigoPerez2803/vector-arcade) |
-| **RoeExchange** (university, redesign): student marketplace | [Live site](https://rodrigoperez2803.github.io/roe-exchange/) | [roe-exchange](https://github.com/RodrigoPerez2803/roe-exchange) |
-| **RoeExchange** (university, original version) | [Live site](https://rodrigoperez2803.github.io/roe-exchange-original/) | [roe-exchange-original](https://github.com/RodrigoPerez2803/roe-exchange-original) |
-| **Dungeons & Coffee** (university, redesign): fantasy café website | [Live site](https://rodrigoperez2803.github.io/dungeons-and-coffee/) | [dungeons-and-coffee](https://github.com/RodrigoPerez2803/dungeons-and-coffee) |
-| **Dungeons & Coffee** (university, original version) | [Live site](https://rodrigoperez2803.github.io/dungeons-and-coffee-original/) | [dungeons-and-coffee-original](https://github.com/RodrigoPerez2803/dungeons-and-coffee-original) |
+| RoeExchange · Redesign | [Open](https://rodrigoperez2803.github.io/roe-exchange/) | [roe-exchange](https://github.com/RodrigoPerez2803/roe-exchange) |
+| RoeExchange · Original version | [Open](https://rodrigoperez2803.github.io/roe-exchange-original/) | [roe-exchange-original](https://github.com/RodrigoPerez2803/roe-exchange-original) |
+| Dungeons & Coffee · Redesign | [Open](https://rodrigoperez2803.github.io/dungeons-and-coffee/) | [dungeons-and-coffee](https://github.com/RodrigoPerez2803/dungeons-and-coffee) |
+| Dungeons & Coffee · Original version | [Open](https://rodrigoperez2803.github.io/dungeons-and-coffee-original/) | [dungeons-and-coffee-original](https://github.com/RodrigoPerez2803/dungeons-and-coffee-original) |
 
-To add a project, add an entry to the `PROJECTS` list (or `UNIVERSITY` for coursework) in `index.html` and put its screenshot in `img/`.
+## Games (Vector Arcade)
+| Game | Play | Code |
+|---|---|---|
+| Neon Rush: OutRun-style racer | [Play](https://rodrigoperez2803.github.io/vector-arcade/games/neon-rush/index.html) | [vector-arcade](https://github.com/RodrigoPerez2803/vector-arcade) |
+| Impact Zone: raycasting FPS | [Play](https://rodrigoperez2803.github.io/vector-arcade/games/impact-zone/index.html) | [vector-arcade](https://github.com/RodrigoPerez2803/vector-arcade) |
+| Star Siege: wave-based space shooter | [Play](https://rodrigoperez2803.github.io/vector-arcade/games/star-siege/index.html) | [vector-arcade](https://github.com/RodrigoPerez2803/vector-arcade) |
+
+## Apps
+| App | Try it | Code |
+|---|---|---|
+| FuelScout: cheapest petrol stations, worldwide (Flutter) | [Live app](https://rodrigoperez2803.github.io/fuelscout/) | [fuelscout](https://github.com/RodrigoPerez2803/fuelscout) |
+
+## Videos
+- Raven, 360° turntable (Blender): [`videos/raven-360.mp4`](videos/raven-360.mp4)
+
+## Adding work
+Add an entry to the matching section's `items` in the `SECTIONS` list in `index.html`, and put its screenshot in `img/` (and any video in `videos/`). Sections with no items, such as *Images & posters*, are hidden until something is added.
