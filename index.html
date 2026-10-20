@@ -30,7 +30,7 @@
     .card{display:flex;flex-direction:column;border:1px solid var(--line);border-radius:18px;background:var(--panel);overflow:hidden;transition:transform .2s,border-color .2s}
     .card:hover{transform:translateY(-3px);border-color:#3a4150}
     .shot{aspect-ratio:16/9;background:#0b0d11;overflow:hidden;border-bottom:1px solid var(--line)}
-    .shot img{width:100%;height:100%;object-fit:cover;display:block}
+    .shot img{width:100%;height:100%;object-fit:cover;object-position:top;display:block}
     .body{display:flex;flex-direction:column;gap:12px;padding:22px;flex:1}
     .body h3{margin:0;font-size:24px;letter-spacing:-.4px}
     .kind{font:500 12px 'JetBrains Mono',monospace;color:var(--accent2)}
@@ -57,6 +57,9 @@
 
   <h2>Projects</h2>
   <section class="grid" id="projects" aria-label="Projects"></section>
+
+  <h2 style="margin-top:48px">University projects</h2>
+  <section class="grid" id="university" aria-label="University projects"></section>
 
   <footer>
     <span>© <span id="year"></span> Rodrigo Pérez</span>
@@ -99,8 +102,44 @@
     },
   ];
 
+  // University coursework: each one links to its redesign and to the original version.
+  const UNIVERSITY = [
+    {
+      name: 'RoeExchange',
+      kind: 'Web app · HTML, CSS, JavaScript',
+      image: 'img/roe-exchange.png',
+      summary: 'A marketplace where University of Roehampton students can buy, sell and swap items without leaving campus.',
+      points: [
+        'Verified-student sign-up with field validation (university email, student ID, college).',
+        'Filterable store with favourites, product pages with a seller chat, and trades.',
+        'Step-by-step listing form with drag-and-drop photo upload; data persists in the browser.',
+      ],
+      tags: ['JavaScript', 'HTML', 'CSS', 'Forms and validation', 'localStorage'],
+      demo: 'https://rodrigoperez2803.github.io/roe-exchange/redesign/index.html',
+      demoLabel: 'Open the redesign',
+      extra: { href: 'https://rodrigoperez2803.github.io/roe-exchange/original/index.html', label: 'Original version' },
+      code: 'https://github.com/RodrigoPerez2803/roe-exchange',
+    },
+    {
+      name: 'Dungeons & Coffee',
+      kind: 'Website · HTML, CSS, JavaScript',
+      image: 'img/dungeons-and-coffee.png',
+      summary: 'A website for a fictional coffee shop and tabletop gaming café themed around Dungeons & Dragons.',
+      points: [
+        'Café menu, games shop, table bookings and contact pages.',
+        'Redesign with a new visual identity, responsive layout, filters, a reservation bag and a validated booking form.',
+        'Original coursework version kept alongside, to show how the design evolved.',
+      ],
+      tags: ['HTML', 'CSS', 'JavaScript', 'Responsive design'],
+      demo: 'https://rodrigoperez2803.github.io/dungeons-and-coffee/redesign/index.html',
+      demoLabel: 'Open the redesign',
+      extra: { href: 'https://rodrigoperez2803.github.io/dungeons-and-coffee/original/index.html', label: 'Original version' },
+      code: 'https://github.com/RodrigoPerez2803/dungeons-and-coffee',
+    },
+  ];
+
   const esc = s => s.replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
-  document.querySelector('#projects').innerHTML = PROJECTS.map(p => `
+  const render = list => list.map(p => `
     <article class="card">
       <a class="shot" href="${p.demo}"><img src="${p.image}" alt="Screenshot of ${esc(p.name)}" loading="lazy"></a>
       <div class="body">
@@ -116,6 +155,8 @@
         </div>
       </div>
     </article>`).join('');
+  document.querySelector('#projects').innerHTML = render(PROJECTS);
+  document.querySelector('#university').innerHTML = render(UNIVERSITY);
   document.querySelector('#year').textContent = new Date().getFullYear();
 </script>
 </body>
