@@ -22,8 +22,5 @@ Live site: https://rodrigoperez2803.github.io
 |---|---|---|
 | FuelScout: cheapest petrol stations, worldwide (Flutter) | [Live app](https://rodrigoperez2803.github.io/fuelscout/) | [fuelscout](https://github.com/RodrigoPerez2803/fuelscout) |
 
-## Videos
-- Raven, 360° turntable (Blender): [`videos/raven-360.mp4`](videos/raven-360.mp4)
-
 ## Adding work
-Add an entry to the matching section's `items` in the `SECTIONS` list in `index.html`, and put its screenshot in `img/` (and any video in `videos/`). Sections with no items, such as *Images & posters*, are hidden until something is added.
+Add an entry to the matching section's `items` in the `SECTIONS` list in `index.html`, and put its screenshot in `img/` (and any video in `videos/`). Sections with no items, such as *Videos* and *Images & posters*, are hidden until something is added.
