@@ -102,10 +102,11 @@
     },
   ];
 
-  // University coursework: each one links to its redesign and to the original version.
+  // University coursework: the original version and the redesign of each project, each with its own repo.
+  const GH = 'https://github.com/RodrigoPerez2803/', SITE = 'https://rodrigoperez2803.github.io/';
   const UNIVERSITY = [
     {
-      name: 'RoeExchange',
+      name: 'RoeExchange · Redesign',
       kind: 'Web app · HTML, CSS, JavaScript',
       image: 'img/roe-exchange.png',
       summary: 'A marketplace where University of Roehampton students can buy, sell and swap items without leaving campus.',
@@ -115,26 +116,54 @@
         'Step-by-step listing form with drag-and-drop photo upload; data persists in the browser.',
       ],
       tags: ['JavaScript', 'HTML', 'CSS', 'Forms and validation', 'localStorage'],
-      demo: 'https://rodrigoperez2803.github.io/roe-exchange/redesign/index.html',
-      demoLabel: 'Open the redesign',
-      extra: { href: 'https://rodrigoperez2803.github.io/roe-exchange/original/index.html', label: 'Original version' },
-      code: 'https://github.com/RodrigoPerez2803/roe-exchange',
+      demo: SITE + 'roe-exchange/',
+      demoLabel: 'Open the site',
+      code: GH + 'roe-exchange',
     },
     {
-      name: 'Dungeons & Coffee',
+      name: 'RoeExchange · Original version',
+      kind: 'Website · HTML, CSS, JavaScript',
+      image: 'img/roe-exchange-original.png',
+      summary: 'The original coursework version of RoeExchange: a multi-page prototype of the student marketplace.',
+      points: [
+        'Sign-up journey with personal details and college selection.',
+        'Store by category, product details, selling and trading pages.',
+        'Simple form validation, picture previews and on-screen messages.',
+      ],
+      tags: ['HTML', 'CSS', 'JavaScript'],
+      demo: SITE + 'roe-exchange-original/',
+      demoLabel: 'Open the site',
+      code: GH + 'roe-exchange-original',
+    },
+    {
+      name: 'Dungeons & Coffee · Redesign',
       kind: 'Website · HTML, CSS, JavaScript',
       image: 'img/dungeons-and-coffee.png',
       summary: 'A website for a fictional coffee shop and tabletop gaming café themed around Dungeons & Dragons.',
       points: [
-        'Café menu, games shop, table bookings and contact pages.',
-        'Redesign with a new visual identity, responsive layout, filters, a reservation bag and a validated booking form.',
-        'Original coursework version kept alongside, to show how the design evolved.',
+        'New visual identity and responsive layout across six pages.',
+        'Menu and product filters, a reservation bag with a live counter, and a validated table-booking form.',
+        'Count-up statistics and scroll-reveal animations.',
       ],
       tags: ['HTML', 'CSS', 'JavaScript', 'Responsive design'],
-      demo: 'https://rodrigoperez2803.github.io/dungeons-and-coffee/redesign/index.html',
-      demoLabel: 'Open the redesign',
-      extra: { href: 'https://rodrigoperez2803.github.io/dungeons-and-coffee/original/index.html', label: 'Original version' },
-      code: 'https://github.com/RodrigoPerez2803/dungeons-and-coffee',
+      demo: SITE + 'dungeons-and-coffee/',
+      demoLabel: 'Open the site',
+      code: GH + 'dungeons-and-coffee',
+    },
+    {
+      name: 'Dungeons & Coffee · Original version',
+      kind: 'Website · HTML, CSS',
+      image: 'img/dungeons-and-coffee-original.png',
+      summary: 'The original coursework version of Dungeons & Coffee: a multi-page static website.',
+      points: [
+        'Home, about, menu, products, play and contact pages.',
+        'Semantic HTML with hand-written CSS.',
+        'A small script to switch between the product categories.',
+      ],
+      tags: ['HTML', 'CSS'],
+      demo: SITE + 'dungeons-and-coffee-original/',
+      demoLabel: 'Open the site',
+      code: GH + 'dungeons-and-coffee-original',
     },
   ];
 
